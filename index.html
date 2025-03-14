@@ -5,90 +5,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pauline Ponon - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
-    
+    <div id="particles-js"></div>
     <div class="moving-bg">
         <div class="shape"></div>
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
 
-    
     <div class="profile-container">
         <img src="image.jpg" alt="Pauline Ponon" class="profile-pic">
         <h1>Pauline Ponon</h1>
-         IT Student</p>
+        <p> IT Student</p>
 
         <div class="button-container">
-            <a href="#tech-stack">Tech Stack</a>
-            <a href="#contact">Contact Me</a>
+            <a href="#about-me" class="button">About Me</a>
+            <a href="#tech-stack" class="button">Tech Stack</a>
+            <a href="#contact" class="button">Contact Me</a>
         </div>
     </div>
 
-    
-    
-    <div class="about-me">
-        <h2>About Me</h2>
-        <p>
-            Hello, World! I'm Pauline Ponon, a sophomore at St. Dominic College of Asia, 
-            passionate about technology and all things digital. I am starting to love 
-            diving into the world of coding, solving challenges, and constantly learning 
-            new things. Whether it's web development or exploring the latest tech trends, 
-            I enjoy pushing myself to grow and improve.
-        </p>
-        <p>
-            My goal is to become a skilled developer, creating visually stunning 
-            and user-friendly websites. I aspire to work on innovative projects that combine 
-            creativity with technology, making an impact in the digital world. In the future, 
-            I aim to deepen my knowledge in responsive web design and back-end technologies to become a well-rounded developer. With 
-            continuous learning and hands-on experience, I aim to contribute to meaningful 
-            tech solutions.
-        </p>
-        <p>
-            My goal is to become a skilled developer, creating visually stunning 
-            and user-friendly websites. I aspire to work on innovative projects that combine 
-            creativity with technology, making an impact in the digital world. In the future, 
-            I aim to deepen my knowledge in responsive web design and back-end technologies to become a well-rounded developer. With 
-            continuous learning and hands-on experience, I aim to contribute to meaningful 
-            tech solutions.
-        </p>
-    </div>
-
-    
-    
-    <div id="tech-stack" class="hidden">
-        <h2>Tech Stack</h2>
-        <div class="tech-icons">
-            <img src="html.png" alt="HTML">
-            <img src="css.png" alt="CSS">
-            <img src="java.png" alt="Java">
-            <img src="c.png" alt="C">
-            <img src="android studio.png" alt="Android Studio">
-            <img src="css.png" alt="CSS">
-            <img src="java.png" alt="Java">
-            <img src="c.png" alt="C">
-            <img src="android studio.png" alt="Android Studio">
+    <div id="about-me" class="modal">
+        <div class="modal-content">
+            <h2>About Me</h2>
+            <p>
+                Hello, World! I'm Pauline Ponon, a sophomore at St. Dominic College of Asia, 
+                passionate about technology and all things digital. I am starting to love 
+                diving into the world of coding, solving challenges, and constantly learning 
+                new things. Whether it's web development or exploring the latest tech trends, 
+                I enjoy pushing myself to grow and improve.
+            </p>
+            <p>
+                My goal is to become a skilled developer, creating visually stunning 
+                and user-friendly websites. I aspire to work on innovative projects that combine 
+                creativity with technology, making an impact in the digital world. In the future, 
+                I aim to deepen my knowledge in responsive web design and back-end technologies to become a well-rounded developer. With 
+                continuous learning and hands-on experience, I aim to contribute to meaningful 
+                tech solutions.
+            </p>
+            <a href="#" class="close-btn">Close</a>
         </div>
-        <a href="#" class="close-btn">Close</a>
     </div>
 
-
-    <div id="contact" class="hidden">
-        <h2>Contact Me</h2>
-        <div class="contact-icons">
-            <a href="https://github.com/Pauline311" target="_blank">
-                <img src="github.png" alt="GitHub">
-            </a>
-            <a href="https://www.linkedin.com/in/pauline-ponon-0b80a9354/" target="_blank">
-                <img src="linkedin.svg" alt="LinkedIn">
-                <img src="linkedin.svg" alt="LinkedIn">
-            </a>
+    <div id="tech-stack" class="modal">
+        <div class="modal-content">
+            <h2>Tech Stack</h2>
+            <div class="tech-icons">
+                <img src="html.png" alt="HTML">
+                <img src="css.png" alt="CSS">
+                <img src="java.png" alt="Java">
+                <img src="c.png" alt="C">
+                <img src="android studio.png" alt="Android Studio">
+            </div>
+            <a href="#" class="close-btn">Close</a>
         </div>
-        <a href="#" class="close-btn">Close</a>
     </div>
 
+    <div id="contact" class="modal">
+        <div class="modal-content">
+            <h2>Contact Me</h2>
+            <div class="contact-icons">
+                <a href="https://github.com/Pauline311" target="_blank">
+                    <img src="github.png" alt="GitHub">
+                </a>
+                <a href="https://www.linkedin.com/in/pauline-ponon-0b80a9354/" target="_blank">
+                    <img src="linkedin.svg" alt="LinkedIn">
+                </a>
+            </div>
+            <a href="#" class="close-btn">Close</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttons = document.querySelectorAll('.button');
+            const modals = document.querySelectorAll('.modal');
+            const closeButtons = document.querySelectorAll('.close-btn');
+
+            buttons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = button.getAttribute('href').substring(1);
+                    document.getElementById(targetId).style.display = 'flex';
+                });
+            });
+
+            closeButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    button.closest('.modal').style.display = 'none';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
