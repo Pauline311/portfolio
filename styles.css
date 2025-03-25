@@ -1,6 +1,6 @@
 body {
     color: white;
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
     padding: 0;
     overflow-x: hidden;
@@ -20,9 +20,12 @@ body {
 
 .profile-container h1 {
     color: white;
+    font-size: 2.5em; /* Increased font size for emphasis */
+    margin-bottom: 20px; /* Spacing below the heading */
 }
 
 .profile-pic {
+    
     width: 150px;
     height: 150px;
     border-radius: 50%;
@@ -49,6 +52,8 @@ body {
     padding: 12px 24px;
     border-radius: 30px;
     text-decoration: none;
+    border: none; /* Ensured no border */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Added shadow for depth */
     transition: transform 0.3s, background 0.3s;
 }
 
@@ -78,15 +83,18 @@ body {
     max-width: 500px;
     text-align: center;
     color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Added shadow for depth */
 }
 
-.tech-icons img, .contact-icons img {
+.tech-icons img,
+.contact-icons img {
     width: 50px;
     margin: 10px;
     transition: transform 0.3s;
 }
 
-.tech-icons img:hover, .contact-icons img:hover {
+.tech-icons img:hover,
+.contact-icons img:hover {
     transform: scale(1.2);
 }
 
@@ -98,12 +106,11 @@ body {
     border-radius: 5px;
     margin-top: 20px;
     display: inline-block;
-
+    transition: background 0.3s; /* Added transition for smooth hover */
 }
 
-
 .close-btn:hover {
-    background-color: rgb(42, 0, 139);
+    background-color: rgb(32, 0, 110); /* Slightly darker on hover */
 }
 
 @keyframes fadeIn {
@@ -122,4 +129,35 @@ body {
 
 .fade-out {
     animation: fadeOut 0.5s ease-in-out;
+}
+
+/* Added styles for navigation links */
+nav {
+    margin: 20px 0;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    font-weight: bold; 
+    text-decoration: none;
+    padding: 10px 15px;
+    position: relative;
+}
+
+nav a::after {
+    content: "";
+    display: block;
+    height: 2px;
+    background: #00bcd4;
+    width: 0;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+nav a:hover::after {
+    width: 100%;
 }
