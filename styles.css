@@ -1,8 +1,21 @@
 /* General body styles */
+:root {
+    --bg-color: #f0f4f8; /* Light mode background */
+    --text-color: #1f2937; /* Light mode text */
+    --accent-color: #0d9488; /* Light mode accent */
+}
+
+body.dark-mode {
+    --bg-color: #1e293b; /* Dark mode background */
+    --text-color: #f8f9fa; /* Dark mode text */
+    --accent-color: #38bdf8; /* Dark mode accent */
+}
+
 body {
     scroll-behavior: smooth;
-    color: white;
+    color: var(--text-color);
     font-family: 'Arial', sans-serif;
+    background-color: var(--bg-color);
     background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
     padding: 0;
     overflow-x: hidden;
@@ -239,6 +252,7 @@ body {
 nav {
     margin: 20px 0;
     text-align: center;
+    background-color: var(--bg-color);
 }
 
 nav a {
@@ -252,7 +266,7 @@ nav a {
 
 /* Navigation hover effect with color change */
 nav a:hover {
-    background-color: #00bcd4; /* New background color */
+    background-color: var(--accent-color);
     color: #16213e; /* Change text color */
     border-radius: 5px; /* Optional: Adds a slight curve to the corners */
 }
@@ -276,6 +290,12 @@ nav a:hover::after {
     width: 100%;
     background: #008c9e; /* Slightly darker underline color */
 }
+
+/* Back to top button */
+#backToTop {
+    background-color: var(--accent-color);
+}
+
 /* Responsive styles */
 @media (max-width: 768px) {
     .profile-pic {
@@ -297,4 +317,7 @@ nav a:hover::after {
     }
 }
 
-/* Responsive styles for smaller screens */ 
+/* Responsive styles for smaller screens */
+.nav-link:hover {
+    background-color: var(--accent-color);
+}

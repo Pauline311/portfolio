@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Modal functionality for opening and closing
     const buttons = document.querySelectorAll('.button');
     const closeButtons = document.querySelectorAll('.close-btn');
 
+    // Open modal on button click
     buttons.forEach(button => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
@@ -12,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Close modal on close button click
     closeButtons.forEach(button => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
@@ -22,32 +25,45 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 modal.style.display = 'none';
                 modal.classList.remove('fade-out');
-            }, 500);
+            }, 500); // Delay removal after animation
         });
     });
 
+    // Dark mode toggle functionality
     const toggle = document.getElementById("darkModeToggle");
+
+    // Check and apply saved dark mode preference
+    const isDarkMode = localStorage.getItem("darkMode") === "enabled";
+    if (isDarkMode) {
+        document.body.classList.add("dark-mode");
+        toggle.textContent = "☀️"; // Change icon to sun for light mode
+    }
+
     toggle.addEventListener("click", () => {
-        document.body.classList.toggle("light-mode");
-        if (document.body.classList.contains("light-mode")) {
-            document.documentElement.style.setProperty('--bg-color', '#ffffff');
-            document.documentElement.style.setProperty('--text-color', '#000000');
-            toggle.textContent = '☀️';
+        document.body.classList.toggle("dark-mode");
+
+        // Update the button icon and save preference in localStorage
+        if (document.body.classList.contains("dark-mode")) {
+            toggle.textContent = "☀️"; // Sun icon for light mode
+            localStorage.setItem("darkMode", "enabled"); // Save light mode preference
         } else {
-            document.documentElement.style.setProperty('--bg-color', '#1a1a1a');
-            document.documentElement.style.setProperty('--text-color', '#ffffff');
-            toggle.textContent = '🌙';
+            toggle.textContent = "🌙"; // Moon icon for dark mode
+            localStorage.setItem("darkMode", "disabled"); // Save dark mode preference
         }
     });
 
+    // Back to top button visibility and scroll functionality
     const backToTopBtn = document.getElementById("backToTop");
     window.onscroll = function () {
-        backToTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
+        backToTopBtn.style.display = window.scrollY > 300 ? "block" : "none"; // Show button after scrolling 300px
     };
+
+    // Scroll to top when the button is clicked
     backToTopBtn.onclick = function () {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
+    // Initialize particles.js animation for background effect
     particlesJS("particles-js", {
         "particles": {
             "number": { "value": 80, "density": { "enable": true, "value_area": 800 }},
@@ -85,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "retina_detect": true
     });
 
-    // Fade-in section animation on scroll
+    // Fade-in animation for sections as they come into view
     const sections = document.querySelectorAll("section");
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
@@ -94,24 +110,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.1 }); // Trigger when 10% of section is visible
 
     sections.forEach(section => {
         section.classList.add("fade-in-section");
-        observer.observe(section);
+        observer.observe(section); // Observe each section for visibility
     });
-});
-const sections = document.querySelectorAll("section");
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1 });
-
-sections.forEach(section => {
-  section.classList.add("fade-in-section");
-  observer.observe(section);
 });
