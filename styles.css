@@ -1,27 +1,22 @@
-/* General body styles */
 :root {
-    --bg-color: #f0f4f8; /* Light mode background */
-    --text-color: #1f2937; /* Light mode text */
-    --accent-color: #0d9488; /* Light mode accent */
-}
-
-body.dark-mode {
-    --bg-color: #1e293b; /* Dark mode background */
-    --text-color: #f8f9fa; /* Dark mode text */
-    --accent-color: #38bdf8; /* Dark mode accent */
+    --bg-color: #f0f4f8;
+    --text-color: #1f2937;
+    --accent-color: #0d9488;
 }
 
 body {
-    scroll-behavior: smooth;
-    color: var(--text-color);
-    font-family: 'Arial', sans-serif;
-    background-color: var(--bg-color);
-    background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+    margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', sans-serif;
+    scroll-behavior: smooth;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    animation: fadeInBody 1.5s ease-in-out forwards;
 }
 
-/* Particles background */
 #particles-js {
     position: fixed;
     width: 100%;
@@ -29,7 +24,6 @@ body {
     z-index: -1;
 }
 
-/* Profile container */
 .profile-container {
     text-align: center;
     padding: 50px 20px;
@@ -41,7 +35,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* Profile picture */
 .profile-pic {
     width: 150px;
     height: 150px;
@@ -55,7 +48,6 @@ body {
     transform: scale(1.1) rotate(5deg);
 }
 
-/* Button container */
 .button-container {
     margin: 20px 0;
     display: flex;
@@ -64,7 +56,6 @@ body {
     gap: 15px;
 }
 
-/* Buttons */
 .button {
     background-color: #00bcd4;
     color: white;
@@ -81,7 +72,6 @@ body {
     background-color: #008c9e;
 }
 
-/* Modal */
 .modal {
     display: none;
     position: fixed;
@@ -103,10 +93,9 @@ body {
     max-width: 500px;
     text-align: center;
     color: white;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Added shadow for depth */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Tech and contact icons */
 .tech-icons img,
 .contact-icons img {
     width: 50px;
@@ -119,7 +108,6 @@ body {
     transform: scale(1.2);
 }
 
-/* Close button */
 .close-btn {
     background-color: rgb(42, 0, 139);
     color: white;
@@ -135,7 +123,6 @@ body {
     background-color: rgb(32, 0, 110);
 }
 
-/* Typing text animation */
 .typing-text {
     font-family: 'Share Tech Mono', monospace;
     font-size: 1.5rem;
@@ -146,7 +133,18 @@ body {
     animation: typing 3s steps(30, end) forwards, blink 0.8s infinite;
 }
 
-/* Fade-in and slide animations */
+@keyframes typing {
+    to {
+        width: 11ch;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -158,166 +156,48 @@ body {
     }
 }
 
-/* Fade-in and slide from left animation */
-@keyframes fadeInLeft {
+@keyframes fadeInBody {
     0% {
         opacity: 0;
-        transform: translateX(-50px);
     }
     100% {
         opacity: 1;
-        transform: translateX(0);
     }
 }
 
-/* Fade-in and slide from right animation */
-@keyframes fadeInRight {
-    0% {
-        opacity: 0;
-        transform: translateX(50px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-/* Glow effect */
-@keyframes textGlow {
-    0% {
-        text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
-    }
-    50% {
-        text-shadow: 0 0 20px rgba(255, 255, 255, 1);
-    }
-    100% {
-        text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
-    }
-}
-
-/* About Me Section */
-#about .container {
-    animation: fadeInLeft 2s ease-out;
-}
-
-#about p {
-    animation: fadeInRight 2s ease-out;
-    animation-delay: 0.5s; /* Stagger effect */
-    opacity: 0;
-    transform: translateX(50px);
-}
-
-/* Glow effect for heading */
-#about h2 {
-    animation: textGlow 2s infinite alternate;
-    color: #fff;
-}
-
-/* Change background color when section is in view */
-#about {
-    background-color: #2c2c2c;
-    transition: background-color 0.5s ease-in-out;
-}
-
-/* Adding a subtle hover effect for the entire section */
-#about:hover {
-    background-color: #444;
-}
-
-/* Fade-in on scroll for other sections */
-.fade-in-section {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.fade-in-section.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Certifications */
-.certification-img {
-    border: 2px solid white;
-    border-radius: 12px;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.certification-img:hover {
-    transform: scale(1.08);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
-}
-
-/* Navigation styles */
 nav {
-    margin: 20px 0;
-    text-align: center;
     background-color: var(--bg-color);
 }
 
-nav a {
-    color: white;
-    font-weight: bold;
-    text-decoration: none;
-    padding: 10px 15px;
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-/* Navigation hover effect with color change */
-nav a:hover {
+.nav-link:hover {
     background-color: var(--accent-color);
-    color: #16213e; /* Change text color */
-    border-radius: 5px; /* Optional: Adds a slight curve to the corners */
 }
 
-/* Underline effect on hover */
-nav a::after {
-    content: "";
-    display: block;
-    height: 2px;
-    background: #00bcd4;
-    width: 0;
-    transition: width 0.3s ease;
-    position: absolute;
-    bottom: -5px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-/* Underline expands on hover */
-nav a:hover::after {
-    width: 100%;
-    background: #008c9e; /* Slightly darker underline color */
-}
-
-/* Back to top button */
 #backToTop {
     background-color: var(--accent-color);
 }
 
-/* Responsive styles */
-@media (max-width: 768px) {
-    .profile-pic {
-        width: 120px;
-        height: 120px;
-    }
-
-    .button {
-        padding: 10px 20px;
-    }
-
-    .tech-icons img,
-    .contact-icons img {
-        width: 40px;
-    }
-
-    #about h2 {
-        font-size: 1.8rem;
-    }
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-/* Responsive styles for smaller screens */
-.nav-link:hover {
-    background-color: var(--accent-color);
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.glow {
+    text-shadow: 0 0 10px #38bdf8, 0 0 20px #38bdf8, 0 0 30px #38bdf8;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #38bdf8, 0 0 10px #38bdf8;
+    }
+    to {
+        text-shadow: 0 0 20px #38bdf8, 0 0 30px #38bdf8;
+    }
 }
