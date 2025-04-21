@@ -240,3 +240,39 @@ header {
 #dark-mode-toggle:hover {
   transform: scale(1.2);
 }
+/* START SLIDESHOW CSS */
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+  }
+  
+  .mySlides {
+    display: none;
+  }
+  
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @keyframes fade {
+    from { opacity: .4 } 
+    to { opacity: 1 }
+  }
+  
+  .dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  .active {
+    background-color: #0d9488;
+  }
+  /* END SLIDESHOW CSS */
+  
