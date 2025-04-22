@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tech Stack - Pauline Ponon</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div id="particles-js"></div> 
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <div class="nav-left d-flex align-items-center">
+                <a class="navbar-brand me-2" href="index.html">Pauline Ponon</a>
+                <button class="btn-dark-mode" id="darkModeToggle" title="Toggle Dark Mode">🌓</button>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Me</a></li>
+                    <li class="nav-item"><a class="nav-link" href="techstack.html">Tech Stack</a></li>
+                    <li class="nav-item"><a class="nav-link" href="certification.html">Certifications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contanct.html">Contact Me</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="tech" class="bg-secondary text-white text-center">
+        <div class="container">
+            <h2 class="mb-4">Tech Stack</h2>
+            <div class="tech-icons d-flex justify-content-center flex-wrap">
+                <img src="html.png" alt="HTML">
+                <img src="css.png" alt="CSS">
+                <img src="java.png" alt="Java">
+                <img src="c.png" alt="C">
+                <img src="android studio.png" alt="Android Studio">
+            </div>
+        </div>
+    </section>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const toggleBtn = document.getElementById("darkModeToggle");
+        const root = document.documentElement;
+
+        toggleBtn.addEventListener("click", () => {
+            const isDark = root.style.getPropertyValue("--bg-color") === "#1f2937";
+
+            root.style.setProperty("--bg-color", isDark ? "#f0f4f8" : "#1f2937");
+            root.style.setProperty("--text-color", isDark ? "#1f2937" : "#f0f4f8");
+            root.style.setProperty("--nav-color", isDark ? "#1e293b" : "#0f172a");
+        });
+        particlesJS("particles-js", { 
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#0d9488" }, 
+                shape: { type: "circle", stroke: { width: 0 }, polygon: { nb_sides: 5 } },
+                opacity: { value: 0.4 },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#0d9488", 
+                    opacity: 0.5,
+                    width: 1
+                },
+                move: { enable: true, speed: 4, out_mode: "out" }
+            },
+            interactivity: {
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" },
+                    resize: true
+                },
+                modes: {
+                    repulse: { distance: 200, duration: 0.4 },
+                    push: { particles_nb: 4 }
+                }
+            },
+            retina_detect: true
+        });
+    </script>
+</body>
+</html>

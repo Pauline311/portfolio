@@ -1,4 +1,52 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const toggleBtn = document.getElementById("darkModeToggle");
+    const root = document.documentElement;
+    const darkModeKey = 'darkModeEnabled';
+
+    // Function to apply dark mode
+    function enableDarkMode() {
+        root.style.setProperty("--bg-color", "#1f2937");
+        root.style.setProperty("--text-color", "#f0f4f8");
+        root.style.setProperty("--nav-color", "#0f172a");
+        localStorage.setItem(darkModeKey, 'true');
+        if (toggleBtn) {
+            toggleBtn.textContent = '☀️'; // Change icon to sun
+            toggleBtn.title = 'Toggle Light Mode';
+        }
+    }
+
+    // Function to disable dark mode
+    function disableDarkMode() {
+        root.style.setProperty("--bg-color", "#f0f4f8");
+        root.style.setProperty("--text-color", "#1f2937");
+        root.style.setProperty("--nav-color", "#1e293b");
+        localStorage.setItem(darkModeKey, 'false');
+        if (toggleBtn) {
+            toggleBtn.textContent = '🌓'; // Change icon to moon
+            toggleBtn.title = 'Toggle Dark Mode';
+        }
+    }
+
+    // Check for saved preference on page load
+    const isDarkModeEnabled = localStorage.getItem(darkModeKey) === 'true';
+    if (isDarkModeEnabled) {
+        enableDarkMode();
+    } else {
+        disableDarkMode();
+    }
+
+    // Toggle dark mode on button click
+    if (toggleBtn) {
+        toggleBtn.addEventListener("click", () => {
+            const isCurrentlyDarkMode = localStorage.getItem(darkModeKey) === 'true';
+            if (isCurrentlyDarkMode) {
+                disableDarkMode();
+            } else {
+                enableDarkMode();
+            }
+        });
+    }
+
     const buttons = document.querySelectorAll('.button');
     const closeButtons = document.querySelectorAll('.close-btn');
 
@@ -40,23 +88,28 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof particlesJS !== "undefined") {
         particlesJS("particles-js", {
             particles: {
-                number: { value: 100, density: { enable: true, value_area: 800 } },
-                color: { value: "#ffffff" },
-                shape: { type: "circle" },
-                opacity: { value: 0.5 },
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#0d9488" }, // Changed to visible teal
+                shape: { type: "circle", stroke: { width: 0 }, polygon: { nb_sides: 5 } },
+                opacity: { value: 0.4 },
                 size: { value: 3, random: true },
-                line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
-                move: { enable: true, speed: 2, direction: "none", random: false, straight: false, out_mode: "out" }
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#0d9488", // Same teal for lines
+                    opacity: 0.5,
+                    width: 1
+                },
+                move: { enable: true, speed: 4, out_mode: "out" }
             },
             interactivity: {
-                detect_on: "canvas",
                 events: {
-                    onhover: { enable: true, mode: "grab" },
+                    onhover: { enable: true, mode: "repulse" },
                     onclick: { enable: true, mode: "push" },
                     resize: true
                 },
                 modes: {
-                    grab: { distance: 200, line_linked: { opacity: 1 } },
+                    repulse: { distance: 200, duration: 0.4 },
                     push: { particles_nb: 4 }
                 }
             },
@@ -93,21 +146,22 @@ window.addEventListener('scroll', () => {
         ticking = true;
     }
 });
+
 const faders = document.querySelectorAll('.fade-in-section');
 
 const appearOptions = {
-  threshold: 0.1,
-  rootMargin: "0px 0px -50px 0px"
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
 };
 
 const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    entry.target.classList.add("visible");
-    observer.unobserve(entry.target);
-  });
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+    });
 }, appearOptions);
 
 faders.forEach(fader => {
-  appearOnScroll.observe(fader);
+    appearOnScroll.observe(fader);
 });

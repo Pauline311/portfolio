@@ -5,253 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pauline Ponon - Portfolio</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- leaflet added  -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-  <style>
-    :root {
-      --bg-color: #f0f4f8;
-      --text-color: #1f2937;
-      --accent-color: #0d9488;
-      --nav-color: #1e293b;
-      --hover-color: #38bdf8;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      font-family: 'Segoe UI', sans-serif;
-      scroll-behavior: smooth;
-      position: relative;
-      z-index: 1;
-      opacity: 0;
-      animation: fadeInBody 1.5s ease-in-out forwards;
-    }
-
-    @keyframes fadeInBody {
-      to {
-        opacity: 1;
-      }
-    }
-
-    #particles-js {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-    }
-
-    nav {
-      background-color: var(--nav-color);
-    }
-
-    .navbar-brand, .nav-link {
-      color: white !important;
-    }
-
-    .nav-link {
-      padding: 10px 15px;
-      position: relative;
-      transition: all 0.3s ease;
-    }
-
-    .nav-link:hover {
-      background-color: var(--accent-color);
-      color: white !important;
-      border-radius: 5px;
-    }
-
-    .nav-link::after {
-      content: "";
-      display: block;
-      height: 2px;
-      background: var(--accent-color);
-      width: 0;
-      transition: width 0.3s ease;
-      position: absolute;
-      bottom: -5px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .nav-link:hover::after {
-      width: 100%;
-    }
-
-    .profile-pic {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 4px solid white;
-      margin-bottom: 20px;
-      box-shadow: 0 0 15px 3px rgba(0, 0, 0, 0.2);
-      animation: glow 3s ease-in-out infinite alternate;
-    }
-
-    @keyframes glow {
-      from {
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
-      to {
-        box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
-      }
-    }
-
-    section {
-      padding: 80px 20px;
-      min-height: 100vh;
-    }
-
-    .tech-icons img, .contact-icons img {
-      width: 60px;
-      height: 60px;
-      margin: 10px;
-    }
-
-    .btn-dark-mode {
-      border: none;
-      background: none;
-      color: white;
-      font-size: 1.2rem;
-      cursor: pointer;
-      margin-left: 1rem;
-    }
-
-    footer {
-      background-color: #1e293b;
-      color: #ccc;
-      padding: 20px;
-      text-align: center;
-    }
-
-    #backToTop {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: var(--accent-color);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 45px;
-      height: 45px;
-      font-size: 20px;
-      display: none;
-      z-index: 999;
-    }
-
-    .typing-text {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 1.5rem;
-      border-right: 2px solid white;
-      white-space: nowrap;
-      overflow: hidden;
-      width: 0;
-      animation: typing 3s steps(30, end) forwards, blink .8s infinite;
-    }
-
-    @keyframes typing {
-      to {
-        width: 11ch;
-      }
-    }
-
-    @keyframes blink {
-      50% {
-        border-color: transparent;
-      }
-    }
-
-    .fade-in-section {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-
-    .fade-in-section.visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    .modal-content {
-      background-color: #1f2937;
-      color: white;
-    }
-
-    iframe {
-      width: 100%;
-      height: 400px;
-    }
-
-    .close {
-      color: #fff;
-      font-size: 2rem;
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      cursor: pointer;
-    }
-
-    .bg-dark {
-      background-color: transparent !important;
-      color: var(--text-color) !important;
-    }
-
-    .bg-secondary {
-      background-color: transparent !important;
-      color: var(--text-color) !important;
-    }
-    #leafletMap {
-      width: 100%;
-      height: 400px;
-      border-radius: 8px;
-    }
-  </style>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="js/script.js"></script>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div id="particles-js"></div>
 
-  <!-- Navigation -->
   <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
       <div class="nav-left d-flex align-items-center">
-        <a class="navbar-brand me-2" href="#">Pauline Ponon</a>
+        <a class="navbar-brand me-2" href="index.html">Pauline Ponon</a>
         <button class="btn-dark-mode" id="darkModeToggle" title="Toggle Dark Mode">🌓</button>
       </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
-      <style>
-        .navbar-toggler-icon {
-          background-color: white;
-          border: 1px solid var(--accent-color);
-          border-radius: 5px;
-        }
-      </style>
-      </button>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    
-      </nav>
-      
-      
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
-          <li class="nav-item"><a class="nav-link" href="#tech">Tech Stack</a></li>
-          <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact Me</a></li>
-         
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Me</a></li>
+          <li class="nav-item"><a class="nav-link" href="techstack.html">Tech Stack</a></li>
+          <li class="nav-item"><a class="nav-link" href="certification.html">Certifications</a></li>
+          <li class="nav-item"><a class="nav-link" href="contanct.html">Contact Me</a></li>
         </ul>
       </div>
     </div>
   </nav>
-  
+
   <section id="home" class="text-center">
     <div class="container d-flex flex-column align-items-center justify-content-center">
       <div style="display: flex; flex-direction: column; align-items: center;">
@@ -263,168 +44,54 @@
       </div>
     </div>
   </section>
-  
 
-  <section id="about" class="bg-dark text-light">
-    <div class="container">
-      <h2 class="mb-4">About Me</h2>
-      <p>
-        Hello, World! I'm Pauline Ponon, a sophomore at <span id="collegeName" style="color: var(--accent-color); cursor: pointer;">St. Dominic College of Asia</span>, passionate about technology and all things digital. I am starting to love diving into coding and exploring the world of programming. Whether it's web development or exploring the latest tech trends, I'm always eager to learn and grow.
-      </p>
+ 
 
 
-      
-      <p>
-        Beyond technical skills, I value collaboration and teamwork, as I believe that the best solutions are often the result of diverse perspectives and collective effort. I am committed to lifelong learning, constantly seeking opportunities to improve my skills, stay updated with the latest trends, and contribute meaningfully to the tech community. My ultimate aspiration is to create impactful projects that leave a lasting impression and make a positive difference in the world.
-      </p>
-    </div>
-  </section>
-
-  <section id="tech" class="bg-secondary text-white text-center">
-    <div class="container">
-      <h2 class="mb-4">Tech Stack</h2>
-      <div class="tech-icons d-flex justify-content-center flex-wrap">
-        <img src="html.png" alt="HTML">
-        <img src="css.png" alt="CSS">
-        <img src="java.png" alt="Java">
-        <img src="c.png" alt="C">
-        <img src="android studio.png" alt="Android Studio">
-      </div>
-    </div>
-  </section>
-
-  <section id="certifications" class="bg-dark text-light text-center">
-    <div class="container">
-      <h2 class="mb-4">Certifications</h2>
-      <div class="row justify-content-center">
-        <div class="col-md-5 mb-4">
-          <img src="microsoft.png" alt="Microsoft Certification" class="img-fluid certification-img">
-        </div>
-        <div class="col-md-5 mb-4">
-          <img src="oracle.png" alt="Oracle Completion Certification" class="img-fluid certification-img">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="bg-dark text-light text-center">
-    <div class="container">
-      <h2 class="mb-4">Contact Me</h2>
-      <div class="contact-icons d-flex justify-content-center flex-wrap">
-        <a href="https://github.com/Pauline311" target="_blank">
-          <img src="github.png" alt="GitHub">
-        </a>
-        <a href="https://www.linkedin.com/in/pauline-ponon-0b80a9354/" target="_blank">
-          <img src="linkedin.svg" alt="LinkedIn">
-        </a>
-
-       
-    </div>
-  </section>
-
-  <button id="backToTop" title="Back to Top">↑</button>
-
-  <!-- Contact Modal with Leaflet -->
-  <div class="modal fade" id="mapModal" tabindex="-1" aria-labelledby="mapModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="mapModalLabel">St. Dominic College of Asia</h5>
-          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
-        </div>
-        <div class="modal-body">
-          
-          <!-- LEAFLET: ADDED -->
-          <div id="leafletMap"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Scripts -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  
-        </div>
-      </div>
-    </div>
-  </div>
   <script>
-    // LEAFLET: ADDED - Initialize map after modal is shown
-    let leafletInitialized = false;
-    document.getElementById('mapModal').addEventListener('shown.bs.modal', function () {
-      if (!leafletInitialized) {
-        const map = L.map('leafletMap').setView([14.45874, 120.95994], 17);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
-        }).addTo(map);
-        L.marker([14.45874, 120.95994]).addTo(map)
-          .bindPopup('St. Dominic College of Asia')
-          .openPopup();
-        leafletInitialized = true;
-      }
-    });
-
     const toggleBtn = document.getElementById("darkModeToggle");
     const root = document.documentElement;
-  
+
     toggleBtn.addEventListener("click", () => {
       const isDark = root.style.getPropertyValue("--bg-color") === "#1f2937";
-  
+
       root.style.setProperty("--bg-color", isDark ? "#f0f4f8" : "#1f2937");
       root.style.setProperty("--text-color", isDark ? "#1f2937" : "#f0f4f8");
       root.style.setProperty("--nav-color", isDark ? "#1e293b" : "#0f172a");
     });
-  </script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script>
-    document.getElementById("collegeName").addEventListener("click", function () {
-      var mapModal = new bootstrap.Modal(document.getElementById('mapModal'));
-      mapModal.show();
-    });
-
-    window.onscroll = function () {
-      document.getElementById("backToTop").style.display =
-        window.scrollY > 20 ? "block" : "none";
-    };
-
-    document.getElementById("backToTop").addEventListener("click", function () {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
 
     particlesJS("particles-js", {
-  particles: {
-    number: { value: 80, density: { enable: true, value_area: 800 } },
-    color: { value: "#0d9488" }, // Changed to visible teal
-    shape: { type: "circle", stroke: { width: 0 }, polygon: { nb_sides: 5 } },
-    opacity: { value: 0.4 },
-    size: { value: 3, random: true },
-    line_linked: {
-      enable: true,
-      distance: 150,
-      color: "#0d9488", // Same teal for lines
-      opacity: 0.5,
-      width: 1
-    },
-    move: { enable: true, speed: 4, out_mode: "out" }
-  },
-  interactivity: {
-    events: {
-      onhover: { enable: true, mode: "repulse" },
-      onclick: { enable: true, mode: "push" },
-      resize: true
-    },
-    modes: {
-      repulse: { distance: 200, duration: 0.4 },
-      push: { particles_nb: 4 }
-    }
-  },
-  retina_detect: true
-});
-
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: "#0d9488" }, 
+        shape: { type: "circle", stroke: { width: 0 }, polygon: { nb_sides: 5 } },
+        opacity: { value: 0.4 },
+        size: { value: 3, random: true },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#0d9488", 
+          opacity: 0.5,
+          width: 1
+        },
+        move: { enable: true, speed: 4, out_mode: "out" }
+      },
+      interactivity: {
+        events: {
+          onhover: { enable: true, mode: "repulse" },
+          onclick: { enable: true, mode: "push" },
+          resize: true
+        },
+        modes: {
+          repulse: { distance: 200, duration: 0.4 },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
+    });
   </script>
 </body>
 </html>

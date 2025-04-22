@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me - Pauline Ponon</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <div class="nav-left d-flex align-items-center">
+                <a class="navbar-brand me-2" href="index.html">Pauline Ponon</a>
+                <button class="btn-dark-mode" id="darkModeToggle" title="Toggle Dark Mode">🌓</button>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Me</a></li>
+                    <li class="nav-item"><a class="nav-link" href="techstack.html">Tech Stack</a></li>
+                    <li class="nav-item"><a class="nav-link" href="certification.html">Certifications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contanct.html">Contact Me</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="about" class="bg-dark text-light">
+        <div class="container">
+            <h2 class="mb-4">About Me</h2>
+            <p>
+                Hello, World! I'm Pauline Ponon, a sophomore at <span id="collegeName" style="color: var(--accent-color); cursor: pointer;">St. Dominic College of Asia</span>, passionate about technology and all things digital. I am starting to love diving into coding and exploring the world of programming. Whether it's web development or exploring the latest tech trends, I'm always eager to learn and grow.
+            </p>
+            <p>
+                Beyond technical skills, I value collaboration and teamwork, as I believe that the best solutions are often the result of diverse perspectives and collective effort. I am committed to lifelong learning, constantly seeking opportunities to improve my skills, stay updated with the latest trends, and contribute meaningfully to the tech community. My ultimate aspiration is to create impactful projects that leave a lasting impression and make a positive difference in the world.
+            </p>
+        </div>
+    </section>
+
+    <div class="modal fade" id="mapModal" tabindex="-1" aria-labelledby="mapModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="mapModalLabel">St. Dominic College of Asia</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="leafletMap"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const toggleBtn = document.getElementById("darkModeToggle");
+        const root = document.documentElement;
+        const darkModeKey = 'darkModeEnabled';
+
+        function enableDarkMode() {
+            root.style.setProperty("--bg-color", "#1f2937");
+            root.style.setProperty("--text-color", "#f0f4f8");
+            root.style.setProperty("--nav-color", "#0f172a");
+            localStorage.setItem(darkModeKey, 'true');
+            if (toggleBtn) {
+                toggleBtn.textContent = '☀️';
+                toggleBtn.title = 'Toggle Light Mode';
+            }
+        }
+
+        function disableDarkMode() {
+            root.style.setProperty("--bg-color", "#f0f4f8");
+            root.style.setProperty("--text-color", "#1f2937");
+            root.style.setProperty("--nav-color", "#1e293b");
+            localStorage.setItem(darkModeKey, 'false');
+            if (toggleBtn) {
+                toggleBtn.textContent = '🌓';
+                toggleBtn.title = 'Toggle Dark Mode';
+            }
+        }
+
+        const isDarkModeEnabled = localStorage.getItem(darkModeKey) === 'true';
+        if (isDarkModeEnabled) {
+            enableDarkMode();
+        } else {
+            disableDarkMode();
+        }
+
+        if (toggleBtn) {
+            toggleBtn.addEventListener("click", () => {
+                const isCurrentlyDarkMode = localStorage.getItem(darkModeKey) === 'true';
+                if (isCurrentlyDarkMode) {
+                    disableDarkMode();
+                } else {
+                    enableDarkMode();
+                }
+            });
+        }
+
+        // Leaflet Map Initialization
+        let leafletInitialized = false;
+        const mapModalElement = document.getElementById('mapModal');
+        if (mapModalElement) {
+            mapModalElement.addEventListener('shown.bs.modal', function () {
+                if (!leafletInitialized) {
+                    const map = L.map('leafletMap').setView([14.45874, 120.95994], 17);
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+                    }).addTo(map);
+                    L.marker([14.45874, 120.95994]).addTo(map)
+                        .bindPopup('St. Dominic College of Asia')
+                        .openPopup();
+                    leafletInitialized = true;
+                }
+            });
+        }
+
+        document.getElementById("collegeName").addEventListener("click", function () {
+            var mapModal = new bootstrap.Modal(document.getElementById('mapModal'));
+            mapModal.show();
+        });
+
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#0d9488" },
+                shape: { type: "circle", stroke: { width: 0 }, polygon: { nb_sides: 5 } },
+                opacity: { value: 0.4 },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#0d9488",
+                    opacity: 0.5,
+                    width: 1
+                },
+                move: { enable: true, speed: 4, out_mode: "out" }
+            },
+            interactivity: {
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" },
+                    resize: true
+                },
+                modes: {
+                    repulse: { distance: 200, duration: 0.4 },
+                    push: { particles_nb: 4 }
+                }
+            },
+            retina_detect: true
+        });
+    </script>
+</body>
+</html>
