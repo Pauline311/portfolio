@@ -133,27 +133,75 @@
     z-index: 999;
   }
   
-  .typing-text {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 1.5rem;
-    border-right: 2px solid white;
-    white-space: nowrap;
-    overflow: hidden;
-    width: 0;
-    animation: typing 3s steps(30, end) forwards, blink .8s infinite;
+  .glowing-text {
+    color: #15011a; /* Initial text color (teal-like) */
+    text-shadow:
+      0 0 5px #0d9488,
+      0 0 10px #0d9488,
+      0 0 20px #0d9488,
+      0 0 40px #0d9488; /* Multiple shadows for the glow */
+    transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out; /* Optional smooth transition */
   }
-  
-  @keyframes typing {
-    to {
-      width: 11ch;
+
+  .glowing-text:hover {
+    color: #14b8a6; /* Slightly brighter color on hover (optional) */
+    text-shadow:
+      0 0 10px #14b8a6,
+      0 0 20px #5d0586,
+      0 0 30px #14b82f,
+      0 0 50px #14b8a6,
+      0 0 70px #02201d; 
+  }
+  .tech-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px; 
+}
+
+.tech-icons img {
+    width: 70px; 
+    height: auto; 
+    opacity: 0.8;
+    animation: pulse 1.7s infinite alternate;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
     }
-  }
-  
-  @keyframes blink {
-    50% {
-      border-color: transparent;
+    100% {
+        transform: scale(1.05);
+        opacity: 1;
     }
-  }
+}
+
+.carousel-inner > .carousel-item {
+  transition: transform 0.6s ease-in-out; 
+  cursor: pointer; /* Indicate that the image is clickable */
+}
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%; 
+}
+.carousel-indicators {
+  bottom: 10px; 
+}
+.carousel-indicators [data-bs-target] {
+  background-color: #01070c; 
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+}
+.carousel-indicators .active {
+  background-color: #0d6efd; 
+}
+.certification-carousel {
+  max-width: 600px; 
+  margin: 0 auto; 
+}
   
   .fade-in-section {
     opacity: 0;
@@ -167,7 +215,7 @@
   }
   
   .modal-content {
-    background-color: #1f2937;
+    background-color: #01060c;
     color: white;
   }
   
@@ -200,7 +248,7 @@
     border-radius: 8px;
   }
   .navbar-toggler-icon {
-    background-color: white;
+    background-color: rgb(8, 8, 8);
     border: 1px solid var(--accent-color);
     border-radius: 5px;
   }

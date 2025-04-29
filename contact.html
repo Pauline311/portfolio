@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tech Stack - Pauline Ponon</title>
+    <title>Contact Me - Pauline Ponon</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
     <div id="particles-js"></div> 
@@ -26,26 +28,31 @@
                     <li class="nav-item"><a class="nav-link" href="about.html">About Me</a></li>
                     <li class="nav-item"><a class="nav-link" href="techstack.html">Tech Stack</a></li>
                     <li class="nav-item"><a class="nav-link" href="certification.html">Certifications</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Me</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contanct.html">Contact Me</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    
 
-    <section id="tech" class="bg-secondary text-white text-center">
+    <section id="contact" class="bg-dark text-light text-center">
         <div class="container">
-            <h2 class="mb-4">Tech Stack</h2>
-            <div class="tech-icons d-flex justify-content-center flex-wrap">
-                <img src="html.png" alt="HTML">
-                <img src="css.png" alt="CSS">
-                <img src="java.png" alt="Java">
-                <img src="c.png" alt="C">
-                <img src="android studio.png" alt="Android Studio">
+            <h2 class="mb-4">Contact Me</h2>
+            <div class="contact-icons d-flex justify-content-center flex-wrap">
+                <a href="https://github.com/Pauline311" target="_blank">
+                    <img src="github.png" alt="GitHub">
+                </a>
+                <a href="https://www.linkedin.com/in/pauline-ponon-0b80a9354/" target="_blank">
+                    <img src="linkedin.svg" alt="LinkedIn">
+                </a>
             </div>
         </div>
     </section>
 
+    <button id="backToTop" title="Back to Top">↑</button>
+
+    
+
+    
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -60,35 +67,40 @@
             root.style.setProperty("--text-color", isDark ? "#1f2937" : "#f0f4f8");
             root.style.setProperty("--nav-color", isDark ? "#1e293b" : "#0f172a");
         });
+
+        document.getElementById("collegeName").addEventListener("click", function () {
+            var mapModal = new bootstrap.Modal(document.getElementById('mapModal'));
+            mapModal.show();
+        });
+
+        window.onscroll = function () {
+            document.getElementById("backToTop").style.display =
+                window.scrollY > 20 ? "block" : "none";
+        };
+
+        document.getElementById("backToTop").addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+        
         particlesJS("particles-js", { 
             particles: {
                 number: { value: 80, density: { enable: true, value_area: 800 } },
                 color: { value: "#0d9488" }, 
                 shape: { type: "circle", stroke: { width: 0 }, polygon: { nb_sides: 5 } },
-                opacity: { value: 0.4 },
-                size: { value: 3, random: true },
-                line_linked: {
-                    enable: true,
-                    distance: 150,
-                    color: "#0d9488", 
-                    opacity: 0.5,
-                    width: 1
-                },
-                move: { enable: true, speed: 4, out_mode: "out" }
-            },
-            interactivity: {
-                events: {
-                    onhover: { enable: true, mode: "repulse" },
-                    onclick: { enable: true, mode: "push" },
-                    resize: true
-                },
-                modes: {
-                    repulse: { distance: 200, duration: 0.4 },
-                    push: { particles_nb: 4 }
-                }
-            },
-            retina_detect: true
-        });
-    </script>
-</body>
-</html>
+                                opacity: { value: 0.4 }
+                            },
+                   
+                    interactivity: {
+                        detect_on: "canvas",
+                        events: {
+                            onhover: { enable: true, mode: "repulse" },
+                            onclick: { enable: true, mode: "push" },
+                            resize: true
+                        },
+                        modes: {
+                            repulse: { distance: 100, duration: 0.4 },
+                            push: { particles_nb: 4 }
+                        }
+                    },
+                    retina_detect: true
+                });

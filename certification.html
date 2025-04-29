@@ -8,6 +8,8 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
     <link rel="stylesheet" href="styles.css" />
+
+        
 </head>
 <body>
     <div id="particles-js"></div>
@@ -26,22 +28,36 @@
                     <li class="nav-item"><a class="nav-link" href="about.html">About Me</a></li>
                     <li class="nav-item"><a class="nav-link" href="techstack.html">Tech Stack</a></li>
                     <li class="nav-item"><a class="nav-link" href="certification.html">Certifications</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contanct.html">Contact Me</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Me</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <section id="certifications" class="bg-dark text-light text-center">
+    <section id="certifications" class="bg-dark text-light text-center py-5">
         <div class="container">
             <h2 class="mb-4">Certifications</h2>
-            <div class="row justify-content-center">
-                <div class="col-md-5 mb-4">
-                    <img src="microsoft.png" alt="Microsoft Certification" class="img-fluid certification-img">
+            <div id="certificationCarousel" class="carousel slide certification-carousel" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#certificationCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#certificationCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
                 </div>
-                <div class="col-md-5 mb-4">
-                    <img src="oracle.png" alt="Oracle Completion Certification" class="img-fluid certification-img">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="microsoft.png" alt="Microsoft Certification" class="d-block w-100 img-fluid carousel-image">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="oracle.png" alt="Oracle Completion Certification" class="d-block w-100 img-fluid carousel-image">
+                    </div>
                 </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#certificationCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#certificationCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
         </div>
     </section>
@@ -61,17 +77,17 @@
             root.style.setProperty("--text-color", isDark ? "#1f2937" : "#f0f4f8");
             root.style.setProperty("--nav-color", isDark ? "#1e293b" : "#0f172a");
         });
-        particlesJS("particles-js", { 
+        particlesJS("particles-js", {
             particles: {
                 number: { value: 80, density: { enable: true, value_area: 800 } },
-                color: { value: "#0d9488" }, 
+                color: { value: "#0d9488" },
                 shape: { type: "circle", stroke: { width: 0 }, polygon: { nb_sides: 5 } },
                 opacity: { value: 0.4 },
                 size: { value: 3, random: true },
                 line_linked: {
                     enable: true,
                     distance: 150,
-                    color: "#0d9488", 
+                    color: "#0d9488",
                     opacity: 0.5,
                     width: 1
                 },
@@ -90,6 +106,8 @@
             },
             retina_detect: true
         });
+
+       
     </script>
 </body>
 </html>
