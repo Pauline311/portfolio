@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         root.style.setProperty("--nav-color", "#0f172a");
         localStorage.setItem(darkModeKey, 'true');
         if (toggleBtn) {
-            toggleBtn.textContent = '☀️'; // Change icon to sun
+            toggleBtn.textContent = '☀️'; 
             toggleBtn.title = 'Toggle Light Mode';
         }
     }
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         root.style.setProperty("--nav-color", "#1e293b");
         localStorage.setItem(darkModeKey, 'false');
         if (toggleBtn) {
-            toggleBtn.textContent = '🌓'; // Change icon to moon
+            toggleBtn.textContent = '🌓'; 
             toggleBtn.title = 'Toggle Dark Mode';
         }
     }
@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Toggle dark mode on button click
     if (toggleBtn) {
+        toggleBtn.style.boxShadow = 'none'; // Ensure no box effect
         toggleBtn.addEventListener("click", () => {
             const isCurrentlyDarkMode = localStorage.getItem(darkModeKey) === 'true';
             if (isCurrentlyDarkMode) {

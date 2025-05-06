@@ -36,10 +36,10 @@ body {
 
 nav {
   background-color: var(--nav-color);
-  position: sticky; /* Or fixed, depending on your preference */
+  position: sticky; 
   top: 0;
   width: 100%;
-  z-index: 1000; /* Ensure it's above other content */
+  z-index: 1000;
 }
 
 .navbar-brand, .nav-link {
@@ -100,62 +100,6 @@ section {
   min-height: 100vh;
 }
 
-.tech-icons img, .contact-icons img {
-  width: 60px;
-  height: 60px;
-  margin: 10px;
-}
-
-.btn-dark-mode {
-  border: none;
-  background: none;
-  color: white;
-  font-size: 1.2rem;
-  cursor: pointer;
-  margin-left: 1rem;
-}
-
-footer {
-  background-color: #1e293b;
-  color: #ccc;
-  padding: 20px;
-  text-align: center;
-}
-
-#backToTop {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: var(--accent-color);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 45px;
-  height: 45px;
-  font-size: 20px;
-  display: none;
-  z-index: 999;
-}
-
-.glowing-text {
-  color: #15011a; /* Initial text color (teal-like) */
-  text-shadow:
-      0 0 5px #0d9488,
-      0 0 10px #0d9488,
-      0 0 20px #0d9488,
-      0 0 40px #0d9488; /* Multiple shadows for the glow */
-  transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out; /* Optional smooth transition */
-}
-
-.glowing-text:hover {
-  color: #14b8a6; /* Slightly brighter color on hover (optional) */
-  text-shadow:
-      0 0 10px #14b8a6,
-      0 0 20px #5d0586,
-      0 0 30px #14b82f,
-      0 0 50px #14b8a6,
-      0 0 70px #02201d;
-}
 .tech-icons {
   display: flex;
   justify-content: center;
@@ -168,6 +112,19 @@ footer {
   height: auto;
   opacity: 0.8;
   animation: pulse 1.7s infinite alternate;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.tech-icons img:hover {
+  box-shadow: 0 0 15px 5px var(--accent-color);
+}
+.contact-icons img {
+  width: 60px; 
+  height: 60px; 
+  transition: box-shadow 0.3s ease-in-out;
+}
+.contact-icons img:hover {
+  box-shadow: 0 0 15px 5px var(--accent-color);
 }
 
 @keyframes pulse {
@@ -299,6 +256,15 @@ h2, .navbar-brand, .nav-link, .modal-title {
       border-bottom: none;
   }
   .nav-link::after {
-      display: none; /* Remove underline on hover for stacked links */
+      display: none; 
   }
 }
+
+.btn-dark-mode {
+  border: none;
+  background: none;
+  
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-left: 1rem;
+  box-shadow: none; }
