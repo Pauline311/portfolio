@@ -15,7 +15,9 @@
         body {
             font-family: 'Open Sans', sans-serif;
         }
-      
+        .modal-content:focus {
+            outline: none;
+        }
     </style>
 </head>
 <body>
@@ -44,36 +46,64 @@
     <section id="certifications" class="bg-dark text-light text-center py-5">
         <div class="container">
             <h2 class="mb-4">Certifications</h2>
-            <div id="certificationCarousel" class="carousel slide certification-carousel" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#certificationCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#certificationCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#certificationCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <div class="row align-items-center">
+                <div class="col-md-4 mb-4">
+                    <img src="pictures/microsoft.png" alt="Microsoft Certification" class="img-fluid rounded shadow mb-2" data-bs-toggle="modal" data-bs-target="#microsoftModal" style="outline: none;">
+                    <p>Microsoft Certification</p>
                 </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="pictures/microsoft.png" alt="Microsoft Certification" class="d-block w-100 img-fluid carousel-image">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="pictures/oracle.png" alt="Oracle Completion Certification" class="d-block w-100 img-fluid carousel-image">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="pictures/database cert.png" alt="Database Certification" class="d-block w-100 img-fluid carousel-image">
-                    </div>
+                <div class="col-md-4 mb-4">
+                    <img src="pictures/oracle.png" alt="Oracle Completion Certification" class="img-fluid rounded shadow mb-2" data-bs-toggle="modal" data-bs-target="#oracleModal" style="outline: none;">
+                    <p>Oracle Completion Certification</p>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#certificationCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#certificationCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+                <div class="col-md-4 mb-4">
+                    <img src="pictures/database cert.png" alt="Database Certification" class="img-fluid rounded shadow mb-2" data-bs-toggle="modal" data-bs-target="#databaseModal" style="outline: none;">
+                    <p>Database Certification</p>
+                </div>
             </div>
         </div>
     </section>
 
-    
+    <div class="modal fade" id="microsoftModal" tabindex="-1" aria-labelledby="microsoftModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-light">
+                <div class="modal-header">
+                    
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="pictures/microsoft.png" alt="Microsoft Certification" class="img-fluid rounded shadow" style="outline: none;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="oracleModal" tabindex="-1" aria-labelledby="oracleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-light">
+                <div class="modal-header">
+                    
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="pictures/oracle.png" alt="Oracle Completion Certification" class="img-fluid rounded shadow" style="outline: none;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="databaseModal" tabindex="-1" aria-labelledby="databaseModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-light">
+                <div class="modal-header">
+                    
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="pictures/database cert.png" alt="Database Certification" class="img-fluid rounded shadow" style="outline: none;">
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -117,6 +147,7 @@
             },
             retina_detect: true
         });
+        
 
         
     </script>

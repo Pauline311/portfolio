@@ -140,7 +140,7 @@ section {
 
 .carousel-inner > .carousel-item {
   transition: transform 0.6s ease-in-out;
-  cursor: pointer; /* Indicate that the image is clickable */
+  cursor: pointer; 
 }
 .carousel-control-prev,
 .carousel-control-next {
@@ -217,20 +217,19 @@ h1, .navbar-brand, .nav-link {
   font-family: 'Open Sans', sans-serif;
 }
 h2, .navbar-brand, .nav-link, .modal-title {
-  font-family: 'Open Sans', sans-serif; /* Apply Open Sans to headings, navbar, and modal title */
+  font-family: 'Open Sans', sans-serif; 
 }
 
-/* Prevent content from being pushed down when navbar expands */
 .navbar-collapse {
   position: absolute;
-  top: 100%; /* Adjust if your navbar height is different */
+  top: 100%;
   left: 0;
   width: 100%;
   background-color: var(--nav-color);
-  z-index: 999; /* Ensure it's above other content */
+  z-index: 999; 
 }
 
-@media (min-width: 992px) { /* For desktop screens, revert to default Bootstrap behavior */
+@media (min-width: 992px) { 
   .navbar-collapse {
       position: static;
       display: flex !important;
@@ -242,7 +241,7 @@ h2, .navbar-brand, .nav-link, .modal-title {
   }
 }
 
-@media (max-width: 991px) { /* For tablet and mobile screens */
+@media (max-width: 991px) { 
   .navbar-nav {
       flex-direction: column !important;
       text-align: center;
@@ -268,3 +267,18 @@ h2, .navbar-brand, .nav-link, .modal-title {
   cursor: pointer;
   margin-left: 1rem;
   box-shadow: none; }
+  body {
+    font-family: 'Open Sans', sans-serif;
+}
+.modal-content:focus {
+    outline: none;
+}
+body {
+  font-family: 'Open Sans', sans-serif; 
+}
+#about .container {
+  text-align: center;
+}
+#about p {
+  font-size: 1.15rem; 
+}

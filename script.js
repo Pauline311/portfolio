@@ -148,6 +148,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
+
 const faders = document.querySelectorAll('.fade-in-section');
 
 const appearOptions = {
@@ -166,15 +167,4 @@ const appearOnScroll = new IntersectionObserver(function(entries, observer) {
 faders.forEach(fader => {
     appearOnScroll.observe(fader);
 });
- // JavaScript to advance carousel on image click/tap
- document.addEventListener('DOMContentLoaded', function() {
-    const carouselInner = document.querySelector('#certificationCarousel .carousel-inner');
-    if (carouselInner) {
-        carouselInner.addEventListener('click', function() {
-            const carousel = bootstrap.Carousel.getInstance('#certificationCarousel');
-            if (carousel) {
-                carousel.next();
-            }
-        });
-    }
-});
+ 
