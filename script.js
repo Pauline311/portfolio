@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Toggle dark mode on button click
     if (toggleBtn) {
-        toggleBtn.style.boxShadow = 'none'; // Ensure no box effect
+        toggleBtn.style.boxShadow = 'none';
         toggleBtn.addEventListener("click", () => {
             const isCurrentlyDarkMode = localStorage.getItem(darkModeKey) === 'true';
             if (isCurrentlyDarkMode) {
@@ -90,14 +90,14 @@ document.addEventListener('DOMContentLoaded', () => {
         particlesJS("particles-js", {
             particles: {
                 number: { value: 80, density: { enable: true, value_area: 800 } },
-                color: { value: "#0d9488" }, // Changed to visible teal
+                color: { value: "#0d9488" }, 
                 shape: { type: "circle", stroke: { width: 0 }, polygon: { nb_sides: 5 } },
                 opacity: { value: 0.4 },
                 size: { value: 3, random: true },
                 line_linked: {
                     enable: true,
                     distance: 150,
-                    color: "#0d9488", // Same teal for lines
+                    color: "#0d9488", 
                     opacity: 0.5,
                     width: 1
                 },
