@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects - Pauline Ponon</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="script.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    
+    .project-carousel {
+      max-width: 320px;
+      margin: auto;
+    }
+    .project-carousel img {
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .project-description {
+      text-align: left;
+    }
+    @media (max-width: 768px) {
+      .project-description {
+        text-align: center;
+        margin-top: 20px;
+      }
+    }
+    
+  </style>
+</head>
+<body>
+  <div id="particles-js"></div>
+
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <div class="nav-left d-flex align-items-center">
+        <a class="navbar-brand me-2" href="index.html">Pauline Ponon</a>
+        <button class="btn-dark-mode" id="darkModeToggle" title="Toggle Dark Mode">🌓</button>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Me</a></li>
+          <li class="nav-item"><a class="nav-link" href="techstack.html">Tech Stack</a></li>
+          <li class="nav-item"><a class="nav-link" href="certification.html">Certifications</a></li>
+           <li class="nav-item"><a class="nav-link" href="Projects.html">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact Me</a></li>
+         
+       
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Projects Section -->
+  <section id="projects" class="bg-dark text-light py-5">
+    <div class="container">
+      <h2 class="mb-5 text-center">Projects</h2>
+
+      <div class="row align-items-center">
+        <!-- Slideshow -->
+        <div class="col-md-5 text-center">
+          <div id="nextStepCarousel" class="carousel slide project-carousel" data-bs-ride="carousel" data-bs-interval="3000">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#nextStepCarousel" data-bs-slide-to="0" class="active"></button>
+              <button type="button" data-bs-target="#nextStepCarousel" data-bs-slide-to="1"></button>
+              <button type="button" data-bs-target="#nextStepCarousel" data-bs-slide-to="2"></button>
+            </div>
+
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="projects/Next Step1.jpg" class="d-block w-100" alt="Next Step 1" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="projects/Next Step1.jpg">
+              </div>
+              <div class="carousel-item">
+                <img src="projects/Next Step2.jpg" class="d-block w-100" alt="Next Step 2" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="projects/Next Step2.jpg">
+              </div>
+              <div class="carousel-item">
+                <img src="projects/Next Step3.jpg" class="d-block w-100" alt="Next Step 3" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="projects/Next Step3.jpg">
+              </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#nextStepCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#nextStepCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </button>
+          </div>
+        </div>
+
+       <!-- Description -->
+<div class="col-md-7 project-description">
+  <h3>Next Step</h3>
+  <p>
+    <strong>Next Step</strong> is a career path guide app designed for Grade 12 and early college students.  
+    It helps learners explore <em>career recommendations</em>, understand <em>IT career descriptions</em>,  
+    take interactive quizzes, and access certification guides. The app also includes a bookmarking feature  
+    for easy reference. Built with <b>Java/Kotlin</b>and it follows modern  
+    <b>Material Design</b> principles.
+  </p>
+  <ul>
+    <li> Career recommendations based on interests</li>
+    <li> IT career descriptions and pathways</li>
+    <li> Interactive quizzes</li>
+    <li> Certification guide for students</li>
+    <li> Bookmarking for saved careers</li>
+  </ul>
+  <h5 class="mt-3">My Contributions</h5>
+  <ul>
+    <li> <b>UI/UX Design</b> – Designed the overall app interface and user flow to ensure a smooth,  
+        intuitive, and visually appealing user experience based on Material Design standards.</li>
+    <li> <b>Documentation</b> – Authored and structured project documentation, including design  
+        plans, technical references, and user guides for the team.</li>
+  </ul>
+</div>
+
+  </section>
+
+  <!-- Image Modal -->
+  <div class="modal fade" id="imageModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content bg-dark">
+        <div class="modal-body text-center">
+          <img src="" id="modalImage" class="img-fluid rounded" alt="Enlarged Image">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const toggleBtn = document.getElementById("darkModeToggle");
+    const root = document.documentElement;
+    const imageModal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+
+    imageModal.addEventListener('show.bs.modal', event => {
+      const triggerImg = event.relatedTarget;
+      const imgSrc = triggerImg.getAttribute('data-img');
+      modalImage.src = imgSrc;
+    });
+     toggleBtn.addEventListener("click", () => {
+            const isDark = root.style.getPropertyValue("--bg-color") === "#1f2937";
+
+            root.style.setProperty("--bg-color", isDark ? "#f0f4f8" : "#1f2937");
+            root.style.setProperty("--text-color", isDark ? "#1f2937" : "#f0f4f8");
+            root.style.setProperty("--nav-color", isDark ? "#1e293b" : "#0f172a");
+        });
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#0d9488" },
+                shape: { type: "circle", stroke: { width: 0 }, polygon: { nb_sides: 5 } },
+                opacity: { value: 0.4 },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#0d9488",
+                    opacity: 0.5,
+                    width: 1
+                },
+                move: { enable: true, speed: 4, out_mode: "out" }
+            },
+            interactivity: {
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" },
+                    resize: true
+                },
+                modes: {
+                    repulse: { distance: 200, duration: 0.4 },
+                    push: { particles_nb: 4 }
+                }
+            },
+            retina_detect: true
+        });
+
+        const certificationImages = document.querySelectorAll('.certification-image');
+        let currentlyClicked = null;
+
+        certificationImages.forEach(img => {
+            img.addEventListener('click', function() {
+               
+                if (currentlyClicked && currentlyClicked !== this) {
+                    currentlyClicked.classList.remove('clicked-image');
+                }
+
+                
+                this.classList.toggle('clicked-image');
+                currentlyClicked = this;
+            });
+        });
+
+       
+        const modals = document.querySelectorAll('.modal');
+        modals.forEach(modal => {
+            modal.addEventListener('hidden.bs.modal', () => {
+                modal.blur();
+                if (currentlyClicked) {
+                    currentlyClicked.classList.remove('clicked-image');
+                    currentlyClicked = null;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+  </script>
+</body>
+</html>
